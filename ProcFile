@@ -1,2 +1,2 @@
-web: gunicorn hackOn.wsgi
+web: gunicorn hackOn.wsgi --log-file -
 release: python manage.py migrate
