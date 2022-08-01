@@ -12,8 +12,17 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import get_user_model
+from django.http import HttpResponse
 
 User = get_user_model()
+
+
+class HelloView(APIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, request):
+        return HttpResponse("Here's the Amazon HackOn web page.") 
+
 
 class LoginView(APIView):
     permission_classes = (IsAuthenticated,)
