@@ -57,7 +57,11 @@ class UpdateUserSerializer(serializers.ModelSerializer):
         instance.username = validated_data['username']
         instance.description = validated_data['description']
         instance.website = validated_data['website']
-        instance.private = validated_data['private']
+        
+        isPrivate = False
+        if validated_data['private'] == "on": 
+            isPrivate = True 
+        instance.private = isPrivate
 
         instance.save()
 
